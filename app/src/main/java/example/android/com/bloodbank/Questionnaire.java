@@ -11,12 +11,14 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class Questionnaire extends AppCompatActivity {
+
     Switch switch_1 = null;
     Switch switch_2 = null;
     Switch switch_3 = null;
     Switch switch_4 = null;
     Switch switch_5 = null;
     Switch switch_6 = null;
+
     Button submitButton;
 
     @Override
