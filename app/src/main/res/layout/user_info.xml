@@ -103,7 +103,8 @@
         android:layout_alignStart="@+id/citylabel"
         android:layout_below="@+id/cityText"
         android:layout_marginTop="33dp"
-        android:text="@string/state" />
+        android:text="@string/state"
+        />
 
     <EditText
         android:id="@+id/stateText"

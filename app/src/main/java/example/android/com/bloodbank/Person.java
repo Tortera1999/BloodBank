@@ -1,28 +1,30 @@
-package Classes;
+package example.android.com.bloodbank;
+
+import java.io.Serializable;
 
 /**
  * Created by default on 10/7/2017.
  */
 
-public class Person {
+public class Person implements Serializable {
     //Declaring class variables
     private String Name;
     private BloodType BType;
     private String Email;
     private String password;
 
-    public Person (String name, BloodType btype, String email, String pass) {
+    public Person(String name, BloodType btype, String email, String pass) {
         this.Name = name;
         this.BType = btype;
         this.Email = email;
         this.password = pass;
     }
 
-    public Person (String email, String pass) {
+    public Person(String email, String pass) {
         this.Email = email;
         this.password = pass;
     }
-    public Person (BloodType btype, String name) {
+    public Person(BloodType btype, String name) {
         this.BType = btype;
         this.Name = name;
     }

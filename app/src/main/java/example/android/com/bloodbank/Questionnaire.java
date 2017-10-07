@@ -63,6 +63,7 @@ public class Questionnaire extends AppCompatActivity {
 
                 if (good) {
                     //TODO: Start activity
+
                 }
                 else {
                     Toast.makeText(Questionnaire.this,"You do not meet the requirements to donate blood.", Toast.LENGTH_LONG).show();

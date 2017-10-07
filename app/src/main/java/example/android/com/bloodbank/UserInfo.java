@@ -37,7 +37,7 @@ public class UserInfo extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_activity);
+        setContentView(R.layout.user_info);
 
         nameText = (EditText) findViewById(R.id.nameText);
         cityText = (EditText) findViewById(R.id.cityText);
@@ -51,13 +51,8 @@ public class UserInfo extends AppCompatActivity{
                 city = cityText.getText().toString();
                 state = stateText.getText().toString();
                 email = emailText.getText().toString();
-                showToast(name);
-                showToast(city);
-                showToast(state);
-                if(checkEmail(email))
-                    showToast(email);
-                else
-                    showToast("Your email is invalid.");
+
+
             }
         });
 
