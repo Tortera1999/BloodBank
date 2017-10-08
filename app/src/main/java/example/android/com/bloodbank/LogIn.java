@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -54,6 +55,30 @@ public class LogIn extends AppCompatActivity {
                 startActivity(goToSignUp);
             }
         });
+        class AsteriskPasswordTransformationMethod extends PasswordTransformationMethod {
+            @Override
+            public CharSequence getTransformation(CharSequence source, View view) {
+                return new PasswordCharSequence(source);
+            }
+
+            class PasswordCharSequence implements CharSequence {
+                private CharSequence mSource;
+                public PasswordCharSequence(CharSequence source) {
+                    mSource = source; // Store char sequence
+                }
+                public char charAt(int index) {
+                    return '*'; // This is the important part
+                }
+                public int length() {
+                    return mSource.length(); // Return default
+                }
+                public CharSequence subSequence(int start, int end) {
+                    return mSource.subSequence(start, end); // Return default
+                }
+            }
+        };
+
+        mPassword.setTransformationMethod(new AsteriskPasswordTransformationMethod());
 
         mLogInButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,16 +86,26 @@ public class LogIn extends AppCompatActivity {
                 username = mUsername.getText().toString();
                 password = mPassword.getText().toString();
 
+                int count = 0;
+
                 for (Person user : allUsers) {
                     if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
                         //TODO: add intent to main page
-                        Intent newIntent = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(newIntent);
-                        break;
+                        if (user.isCanGiveBlood()) {
+                            Intent newIntent = new Intent(getApplicationContext(), MapActivity.class);
+                            startActivity(newIntent);
+                            finish();
+                            break;
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(), "Sorry, you are not able to give blood", Toast.LENGTH_LONG);
+                            count++;
+                        }
                     }
                 }
-
-                Toast.makeText(getApplicationContext(),"Wrong username or password.", Toast.LENGTH_LONG);
+                if (count == 0) {
+                    Toast.makeText(getApplicationContext(),"Wrong username or password.", Toast.LENGTH_LONG);
+                }
             }
         });
 
