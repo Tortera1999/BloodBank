@@ -7,6 +7,7 @@ import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ public class SignUp extends AppCompatActivity {
     private EditText mPassword;
     private EditText mPasswordCheck;
     private Button mSignUp;
+    private CheckBox mRedCross;
 
     ArrayList<Person> allUsers = new ArrayList<>();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -62,6 +64,7 @@ public class SignUp extends AppCompatActivity {
         mPassword = (EditText) findViewById(R.id.edit_text_password);
         mPasswordCheck = (EditText) findViewById(R.id.edit_text_password_check);
         mSignUp = (Button) findViewById(R.id.sign_up_button);
+        mRedCross = (CheckBox) findViewById(R.id.check_box_redcross);
 
         mSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,11 +73,22 @@ public class SignUp extends AppCompatActivity {
                 String password = mPassword.getText().toString();
                 String passCheck = mPasswordCheck.getText().toString();
 
-                if (password.equals(passCheck)) {
-                    Person newUser = new Person(username,password);
-                    Intent newIntent = new Intent(getApplicationContext(), UserInfo.class);
-                    newIntent.putExtra("USER", newUser);
-                    startActivity(newIntent);
+
+                if (password.equals(passCheck) && mRedCross.isChecked()) {
+                    Person newUser = new Person(username, password, true);
+                    String ID = fireRef.push().getKey();
+
+                    newUser.setID(ID);
+                    fireRef.child(ID).setValue(newUser);
+
+                    Intent goToSearch = new Intent(getApplicationContext(), RedCrossSearchActivity.class);
+                    startActivity(goToSearch);
+                }
+                else if (password.equals(passCheck)) {
+                        Person newUser = new Person(username,password);
+                        Intent newIntent = new Intent(getApplicationContext(), UserInfo.class);
+                        newIntent.putExtra("USER", newUser);
+                        startActivity(newIntent);
                 }
                 else {
                     Toast.makeText(getApplicationContext(),"Your passwords do not match.", Toast.LENGTH_LONG);

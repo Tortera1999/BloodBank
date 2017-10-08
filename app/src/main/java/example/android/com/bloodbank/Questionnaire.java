@@ -74,6 +74,7 @@ public class Questionnaire extends AppCompatActivity {
                     Intent goToMap = new Intent(getApplicationContext(), MapActivity.class);
                     goToMap.putExtra("USER",newUser);
                     startActivity(goToMap);
+                    finish();
                 }
                 else {
                     fireRef.child(newUser.getID()).child("canGiveBlood").setValue(false);

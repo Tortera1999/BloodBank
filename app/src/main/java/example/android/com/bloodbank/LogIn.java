@@ -89,7 +89,12 @@ public class LogIn extends AppCompatActivity {
                 int count = 0;
 
                 for (Person user : allUsers) {
-                    if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+
+                    if (user.getUsername().equals(username) && user.getPassword().equals(password) && user.isRedCross() == true) {
+                        Intent goToSearch = new Intent(getApplicationContext(), RedCrossSearchActivity.class);
+                        startActivity(goToSearch);
+                    }
+                    else if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
                         //TODO: add intent to main page
                         if (user.isCanGiveBlood()) {
                             Intent newIntent = new Intent(getApplicationContext(), MapActivity.class);
@@ -113,7 +118,8 @@ public class LogIn extends AppCompatActivity {
         fireRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                allUsers.clear();
+                if (allUsers != null)
+                    allUsers.clear();
 
                 Log.e("Count " ,""+snapshot.getChildrenCount());
 

@@ -2,6 +2,7 @@
     <string name="app_name">Blood Donate</string>
     <string name="blood_type">Blood Type</string>
     <string name="button">Button</string>
+    <string name="search_hint">City</string>
     <string name="name">Name</string>
     <string name="city">City</string>
     <string name="sign_up">Sign Up</string>
@@ -23,4 +24,5 @@
 
     </string-array>
     <string name="title_activity_log_in">LogIn</string>
+    <string name="app_label">Blood Donator</string>
 </resources>
