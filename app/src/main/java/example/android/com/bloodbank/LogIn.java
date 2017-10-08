@@ -86,31 +86,40 @@ public class LogIn extends AppCompatActivity {
                 username = mUsername.getText().toString();
                 password = mPassword.getText().toString();
 
-                int count = 0;
+                boolean noUserPass = true;
 
                 for (Person user : allUsers) {
+
+                    if (!(username.length() > 0)) {
+                        Toast.makeText(getApplicationContext(),"Enter a username and password", Toast.LENGTH_LONG).show();
+                        break;
+                    }
 
                     if (user.getUsername().equals(username) && user.getPassword().equals(password) && user.isRedCross() == true) {
                         Intent goToSearch = new Intent(getApplicationContext(), RedCrossSearchActivity.class);
                         startActivity(goToSearch);
+                        noUserPass = false;
+                        break;
                     }
                     else if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                        //TODO: add intent to main page
+
                         if (user.isCanGiveBlood()) {
                             Intent newIntent = new Intent(getApplicationContext(), MapActivity.class);
                             newIntent.putExtra("USER", user);
                             startActivity(newIntent);
+                            noUserPass = false;
                             finish();
                             break;
                         }
                         else {
-                            Toast.makeText(getApplicationContext(), "Sorry, you are not able to give blood", Toast.LENGTH_LONG);
-                            count++;
+                            Toast.makeText(getApplicationContext(), "Sorry, you are not able to give blood", Toast.LENGTH_LONG).show();
+                            noUserPass = false;
+                            break;
                         }
                     }
                 }
-                if (count == 0) {
-                    Toast.makeText(getApplicationContext(),"Wrong username or password.", Toast.LENGTH_LONG);
+                if (noUserPass) {
+                    Toast.makeText(getApplicationContext(),"Wrong username or password.", Toast.LENGTH_LONG).show();
                 }
             }
         });

@@ -102,19 +102,24 @@ public class UserInfo extends AppCompatActivity{
                             bloodType = new BloodType('Z', 0);
                     }
 
-                    newUser.setCity(city);
-                    newUser.setEmail(emailText.getText().toString());
-                    newUser.setState(stateText.getText().toString());
-                    newUser.setBType(bloodType);
-                    newUser.setName(nameText.getText().toString());
-                    String ID = databaseReference.push().getKey();
+                    if (checkEmail(email)) {
+                        newUser.setCity(city);
+                        newUser.setEmail(emailText.getText().toString());
+                        newUser.setState(stateText.getText().toString());
+                        newUser.setBType(bloodType);
+                        newUser.setName(nameText.getText().toString());
+                        String ID = databaseReference.push().getKey();
 
-                    newUser.setID(ID);
-                    databaseReference.child(ID).setValue(newUser);
+                        newUser.setID(ID);
+                        databaseReference.child(ID).setValue(newUser);
 
-                    Intent goToMain = new Intent(getApplicationContext(), Questionnaire.class);
-                    goToMain.putExtra("USER", newUser);
-                    startActivity(goToMain);
+                        Intent goToMain = new Intent(getApplicationContext(), Questionnaire.class);
+                        goToMain.putExtra("USER", newUser);
+                        startActivity(goToMain);
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), "Your email must be valid.", Toast.LENGTH_LONG).show();
+                    }
                 }
             }
         });
