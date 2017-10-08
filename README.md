@@ -1,2 +1,7 @@
 # BloodBank
-Blood bank app
+
+Contributors:
+Max Huddleston
+Nikhil Iyer
+Mridul Arora
+Brian Tang
