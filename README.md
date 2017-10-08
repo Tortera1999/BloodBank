@@ -1,7 +1,7 @@
 # BloodBank
 
-Contributors:
-Max Huddleston
-Nikhil Iyer
-Mridul Arora
-Brian Tang
+Contributors:\n
+Max Huddleston\n
+Nikhil Iyer\n
+Mridul Arora\n
+Brian Tang\n
