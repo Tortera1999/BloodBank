@@ -14,9 +14,9 @@ import java.util.regex.Pattern;
 public class UserInfo extends AppCompatActivity{
     Spinner spinner;
     String name = "";
-    String city = "";
-    String state = "";
     String email = "";
+    String bloodtype = "";
+    int bloodtypeposition = 0;
 
     EditText nameText;
     EditText cityText;
@@ -37,27 +37,23 @@ public class UserInfo extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_activity);
+        setContentView(R.layout.user_info);
 
         nameText = (EditText) findViewById(R.id.nameText);
-        cityText = (EditText) findViewById(R.id.cityText);
-        stateText = (EditText) findViewById(R.id.stateText);
         emailText = (EditText) findViewById(R.id.emailText);
 
         submitButton = (Button) findViewById(R.id.submitButton);
         submitButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 name = nameText.getText().toString();
-                city = cityText.getText().toString();
-                state = stateText.getText().toString();
                 email = emailText.getText().toString();
                 showToast(name);
-                showToast(city);
-                showToast(state);
                 if(checkEmail(email))
                     showToast(email);
                 else
                     showToast("Your email is invalid.");
+                bloodtype = (String) spinner.getItemAtPosition(bloodtypeposition);
+                showToast(bloodtype);
             }
         });
 
@@ -72,6 +68,7 @@ public class UserInfo extends AppCompatActivity{
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(getBaseContext(), adapterView.getItemAtPosition(i)+" selected", Toast.LENGTH_LONG).show();
+                bloodtypeposition = i;
             }
 
             @Override
@@ -87,4 +84,5 @@ public class UserInfo extends AppCompatActivity{
     private boolean checkEmail(String email) {
         return EMAIL_ADDRESS_PATTERN.matcher(email).matches();
     }
+
 }
