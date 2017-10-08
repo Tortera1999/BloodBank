@@ -38,19 +38,19 @@ public class Questionnaire extends AppCompatActivity {
         switchArray.add(switch_1);
 
         switch_2 = (Switch) findViewById(R.id.switch_2);
-        switchArray.add(switch_1);
+        switchArray.add(switch_2);
 
         switch_3 = (Switch) findViewById(R.id.switch_3);
-        switchArray.add(switch_1);
+        switchArray.add(switch_3);
 
         switch_4 = (Switch) findViewById(R.id.switch_4);
-        switchArray.add(switch_1);
+        switchArray.add(switch_4);
 
         switch_5 = (Switch) findViewById(R.id.switch_5);
-        switchArray.add(switch_1);
+        switchArray.add(switch_5);
 
         switch_6 = (Switch) findViewById(R.id.switch_6);
-        switchArray.add(switch_1);
+        switchArray.add(switch_6);
 
         submitButton = (Button) findViewById(R.id.submit_button);
 
@@ -72,6 +72,7 @@ public class Questionnaire extends AppCompatActivity {
 
                 if (goodToGiveBlood) {
                     Intent goToMap = new Intent(getApplicationContext(), MapActivity.class);
+                    fireRef.child(newUser.getID()).child("canGiveBlood").setValue(true);
                     goToMap.putExtra("USER",newUser);
                     startActivity(goToMap);
                     finish();

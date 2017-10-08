@@ -73,33 +73,67 @@ public class SignUp extends AppCompatActivity {
                 String password = mPassword.getText().toString();
                 String passCheck = mPasswordCheck.getText().toString();
 
+                for (Person user : allUsers) {
+                    if (!user.getUsername().equals(username) && username.length() > 0) {
+                        if (password.equals(passCheck) && mRedCross.isChecked() && password.length() > 0) {
+                            Person newUser = new Person(username, password, true);
+                            String ID = fireRef.push().getKey();
 
-                if (password.equals(passCheck) && mRedCross.isChecked()) {
-                    Person newUser = new Person(username, password, true);
-                    String ID = fireRef.push().getKey();
+                            newUser.setID(ID);
+                            fireRef.child(ID).setValue(newUser);
 
-                    newUser.setID(ID);
-                    fireRef.child(ID).setValue(newUser);
+                            Intent goToSearch = new Intent(getApplicationContext(), RedCrossSearchActivity.class);
+                            startActivity(goToSearch);
+                            finish();
+                            break;
+                        }
+                        else if (password.equals(passCheck) && password.length() > 0) {
+                            Person newUser = new Person(username,password);
+                            Intent newIntent = new Intent(getApplicationContext(), UserInfo.class);
+                            newIntent.putExtra("USER", newUser);
+                            startActivity(newIntent);
+                            finish();
+                            break;
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(),"Your passwords do not match or are invalid.", Toast.LENGTH_LONG).show();
+                            break;
+                        }
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(),"Username already taken or invalid.", Toast.LENGTH_LONG).show();
+                        break;
+                    }
+                }
 
-                    Intent goToSearch = new Intent(getApplicationContext(), RedCrossSearchActivity.class);
-                    startActivity(goToSearch);
-                    finish();
-                }
-                else if (password.equals(passCheck)) {
-                        Person newUser = new Person(username,password);
-                        Intent newIntent = new Intent(getApplicationContext(), UserInfo.class);
-                        newIntent.putExtra("USER", newUser);
-                        startActivity(newIntent);
-                        finish();
-                }
-                else {
-                    Toast.makeText(getApplicationContext(),"Your passwords do not match.", Toast.LENGTH_LONG);
-                }
+
+
             }
         });
 
         mPassword.setTransformationMethod(new AsteriskPasswordTransformationMethod());
         mPasswordCheck.setTransformationMethod(new AsteriskPasswordTransformationMethod());
+
+        fireRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                if (allUsers != null)
+                    allUsers.clear();
+
+                Log.e("Count " ,""+snapshot.getChildrenCount());
+
+                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+                    Person post = postSnapshot.getValue(Person.class);
+                    Log.e("Get Data", "Got the data");
+                    allUsers.add(post);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.d("FAILURE", "reading failure");
+            }
+        });
 
     }
 
