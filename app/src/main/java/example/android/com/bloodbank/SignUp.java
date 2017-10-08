@@ -83,12 +83,14 @@ public class SignUp extends AppCompatActivity {
 
                     Intent goToSearch = new Intent(getApplicationContext(), RedCrossSearchActivity.class);
                     startActivity(goToSearch);
+                    finish();
                 }
                 else if (password.equals(passCheck)) {
                         Person newUser = new Person(username,password);
                         Intent newIntent = new Intent(getApplicationContext(), UserInfo.class);
                         newIntent.putExtra("USER", newUser);
                         startActivity(newIntent);
+                        finish();
                 }
                 else {
                     Toast.makeText(getApplicationContext(),"Your passwords do not match.", Toast.LENGTH_LONG);

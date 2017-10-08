@@ -43,7 +43,7 @@ public class SearchAdapter<Person> extends ArrayAdapter<Person> {
         example.android.com.bloodbank.BloodType bloodType = user.getBType();
 
         TextView mListViewText = convertView.findViewById(R.id.LL_text_box);
-        mListViewText.setText(user.getEmail() + "  Blood Type: " + user.getBType().getbType());
+        mListViewText.setText("Email: " + user.getEmail() + "\nBlood Type: " + user.getBType().getbType());
         Log.d("Blood type", user.getBType().getbType());
 
         return convertView;
