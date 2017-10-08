@@ -20,6 +20,15 @@ public class Person implements Serializable {
     private String ID;
     private String Username;
     private boolean canGiveBlood = true;
+    private boolean redCross;
+
+    public boolean isRedCross() {
+        return redCross;
+    }
+
+    public void setRedCross(boolean redCross) {
+        this.redCross = redCross;
+    }
 
     public boolean isCanGiveBlood() {
         return canGiveBlood;
@@ -85,6 +94,14 @@ public class Person implements Serializable {
         this.Name = name;
     }
     public Person () {}
+
+    //Red Cross initializer
+    public Person(String username, String password, boolean isRedCross) {
+        this.Username = username;
+        this.password = password;
+        this.redCross = isRedCross;
+        this.Name = "Red Cross";
+    }
 
     public String getName() {
         return Name;

@@ -13,7 +13,10 @@ public class BloodType implements Serializable {
     private char secType;
     private int RhFactor;
     private boolean AB;
+    private String bType;
     private final String BAD_CREATION = "Bad Creation";
+
+
     /*
         Constructor for non-type AB bloods
 
@@ -23,7 +26,12 @@ public class BloodType implements Serializable {
     public BloodType(char first, int rhFactor) {
         this.firstType = first;
         this.RhFactor = rhFactor;
+        this.bType = "" + firstType + convertRhToStr();
         this.AB = false;
+    }
+
+    public String getbType() {
+        return bType;
     }
 
     public BloodType () {}
@@ -83,8 +91,14 @@ public class BloodType implements Serializable {
                 bType = "AB-";
             }
         }
+        else if (firstType == 'O') {
+            if (this.RhFactor == 1)
+                bType = "O-";
+            else
+                bType = "0+";
+        }
         else {
-            bType = this.firstType + this.convertRhToStr();
+            bType = "" + this.firstType + this.convertRhToStr();
         }
         return bType;
     }
