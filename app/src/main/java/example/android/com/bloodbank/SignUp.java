@@ -8,15 +8,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class SignUp extends AppCompatActivity {
     private EditText mUsername;
     private EditText mPassword;
     private EditText mPasswordCheck;
     private Button mSignUp;
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference datRef = database.getReference().child("users");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +45,14 @@ public class SignUp extends AppCompatActivity {
                     Person newUser = new Person(username,password);
                     Intent newIntent = new Intent(getApplicationContext(), UserInfo.class);
                     newIntent.putExtra("USER", newUser);
+                    startActivity(newIntent);
                 }
                 else {
                     Toast.makeText(getApplicationContext(),"Your passwords do not match.", Toast.LENGTH_LONG);
                 }
             }
         });
+
     }
 
 }

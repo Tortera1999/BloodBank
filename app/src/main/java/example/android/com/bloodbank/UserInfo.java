@@ -1,5 +1,6 @@
 package example.android.com.bloodbank;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -39,6 +40,9 @@ public class UserInfo extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_info);
 
+        Intent recievedIntent = getIntent();
+        final Person newUser = (Person) recievedIntent.getParcelableExtra("user");
+
         nameText = (EditText) findViewById(R.id.nameText);
         cityText = (EditText) findViewById(R.id.cityText);
         stateText = (EditText) findViewById(R.id.stateText);
@@ -52,7 +56,7 @@ public class UserInfo extends AppCompatActivity{
                 state = stateText.getText().toString();
                 email = emailText.getText().toString();
 
-
+                
             }
         });
 

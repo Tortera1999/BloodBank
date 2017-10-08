@@ -12,6 +12,32 @@ public class Person implements Serializable {
     private BloodType BType;
     private String Email;
     private String password;
+    private String City;
+    private String State;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getCity() {
+        return City;
+    }
+
+    public void setCity(String city) {
+        City = city;
+    }
+
+    public String getState() {
+        return State;
+    }
+
+    public void setState(String state) {
+        State = state;
+    }
 
     public Person(String name, BloodType btype, String email, String pass) {
         this.Name = name;
