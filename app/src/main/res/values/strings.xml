@@ -7,6 +7,10 @@
     <string name="sign_up">Sign Up</string>
     <string name="state">State</string>
     <string name="email">Email</string>
+    <string name="find_a_donation_center">Find a Donation Center</string>
+    <string name="benefits_of_donating">Benefits of Donating</string>
+    <string name="map_description">It feels great to donate!  You get free juice and delicious cookies. \nIt\'s something you can spare – most people have blood to spare... yet, there is still not enough to go around.  \nYou will help ensure blood is on the shelf when needed – most people don\'t think they\'ll ever need blood, but many do. \nYou will be someone\'s hero – in fact, you could help save more than one life with just one donation.</string>
+    <string name="profile">Profile</string>
     <string-array name="bloodtypearray">
         <item name="O-">O-</item>
         <item name="O+">O+</item>

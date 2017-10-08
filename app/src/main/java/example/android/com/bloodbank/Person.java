@@ -19,6 +19,15 @@ public class Person implements Serializable {
     private String State;
     private String ID;
     private String Username;
+    private boolean canGiveBlood = true;
+
+    public boolean isCanGiveBlood() {
+        return canGiveBlood;
+    }
+
+    public void setCanGiveBlood(boolean canGiveBlood) {
+        this.canGiveBlood = canGiveBlood;
+    }
 
     public String getUsername() {
         return Username;

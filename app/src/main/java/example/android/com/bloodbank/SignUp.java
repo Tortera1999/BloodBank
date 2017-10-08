@@ -3,6 +3,7 @@ package example.android.com.bloodbank;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -33,6 +34,28 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+         class AsteriskPasswordTransformationMethod extends PasswordTransformationMethod {
+            @Override
+            public CharSequence getTransformation(CharSequence source, View view) {
+                return new PasswordCharSequence(source);
+            }
+
+            class PasswordCharSequence implements CharSequence {
+                private CharSequence mSource;
+                public PasswordCharSequence(CharSequence source) {
+                    mSource = source; // Store char sequence
+                }
+                public char charAt(int index) {
+                    return '*'; // This is the important part
+                }
+                public int length() {
+                    return mSource.length(); // Return default
+                }
+                public CharSequence subSequence(int start, int end) {
+                    return mSource.subSequence(start, end); // Return default
+                }
+            }
+        };
 
 
         mUsername = (EditText) findViewById(R.id.edit_text_username);
@@ -59,6 +82,8 @@ public class SignUp extends AppCompatActivity {
             }
         });
 
+        mPassword.setTransformationMethod(new AsteriskPasswordTransformationMethod());
+        mPasswordCheck.setTransformationMethod(new AsteriskPasswordTransformationMethod());
 
     }
 

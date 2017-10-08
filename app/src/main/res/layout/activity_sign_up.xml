@@ -10,49 +10,58 @@
 
     <EditText
         android:id="@+id/edit_text_password"
-        android:layout_width="368dp"
+        android:layout_width="344dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Password"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:textColor="@color/colorBlack"
         android:textSize="20sp"
-        android:layout_marginTop="8dp"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_text_username"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="8dp"
+        android:password="true"/>
 
     <EditText
         android:id="@+id/edit_text_password_check"
-        android:layout_width="368dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Enter password again"
-        android:inputType="text"
         android:textColor="@color/colorBlack"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_text_password"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        android:inputType="textPassword"
+        android:password="true"/>
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="368dp"
+        android:layout_width="344dp"
         android:layout_height="wrap_content"
-        android:text="Welcome to BloodBank! Please sign up for an account."
-        android:textSize="22sp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
         android:gravity="center"
+        android:text="Welcome to Blood Donate!\n Please sign up for an account."
         android:textColor="@color/colorBlack"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp" />
+        android:textSize="22sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <EditText
         android:id="@+id/edit_text_username"
@@ -83,6 +92,8 @@
         android:text="Sign Up"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_password_check" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_password_check"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
 </android.support.constraint.ConstraintLayout>

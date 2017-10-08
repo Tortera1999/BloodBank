@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/mapbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/find_a_donation_center"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="410dp"
+        tools:ignore="MissingConstraints"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp" />
+
+    <TextView
+        android:id="@+id/descriptiontitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/benefits_of_donating"
+        tools:layout_editor_absoluteX="129dp"
+        tools:layout_editor_absoluteY="124dp"
+        android:layout_marginBottom="31dp"
+        android:layout_above="@+id/description"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="273dp"
+        android:layout_height="256dp"
+        android:text="@string/map_description"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="154dp"
+        android:layout_above="@+id/mapbutton"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/android_background_give_blood"
+        android:layout_marginBottom="61dp"
+        android:layout_above="@+id/descriptiontitle"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:contentDescription=""
+        tools:ignore="ContentDescription" />
+</RelativeLayout>

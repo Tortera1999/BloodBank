@@ -48,7 +48,7 @@ public class UserInfo extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_info);
 
-        //nameText = (EditText) findViewById(R.id.nameText);
+        nameText = (EditText) findViewById(R.id.nameText);
         cityText = (EditText) findViewById(R.id.cityText);
         stateText = (EditText) findViewById(R.id.stateText);
         emailText = (EditText) findViewById(R.id.emailText);
@@ -106,6 +106,7 @@ public class UserInfo extends AppCompatActivity{
                     newUser.setEmail(emailText.getText().toString());
                     newUser.setState(stateText.getText().toString());
                     newUser.setBType(bloodType);
+                    newUser.setName(nameText.getText().toString());
                     String ID = databaseReference.push().getKey();
 
                     newUser.setID(ID);
