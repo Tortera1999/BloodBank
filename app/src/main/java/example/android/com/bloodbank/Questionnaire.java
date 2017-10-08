@@ -52,6 +52,8 @@ public class Questionnaire extends AppCompatActivity {
         switch_6 = (Switch) findViewById(R.id.switch_6);
         switchArray.add(switch_6);
 
+        //switch 7 age
+
         submitButton = (Button) findViewById(R.id.submit_button);
 
         final Person newUser = (Person) getIntent().getSerializableExtra("USER");

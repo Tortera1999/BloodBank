@@ -116,6 +116,7 @@ public class UserInfo extends AppCompatActivity{
                         Intent goToMain = new Intent(getApplicationContext(), Questionnaire.class);
                         goToMain.putExtra("USER", newUser);
                         startActivity(goToMain);
+                        finish();
                     }
                     else {
                         Toast.makeText(getApplicationContext(), "Your email must be valid.", Toast.LENGTH_LONG).show();
