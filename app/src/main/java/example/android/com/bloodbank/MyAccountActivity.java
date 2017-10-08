@@ -37,10 +37,10 @@ public class MyAccountActivity extends AppCompatActivity {
         mMAA_BloodType.setText("Blood Type: " + bloodType.getbType());
 
         if (currentUser.isCanGiveBlood()) {
-            mMAA_canGiveBlood.setText("Can give blood");
+            mMAA_canGiveBlood.setText("Status: Can give blood");
         }
         else {
-            mMAA_canGiveBlood.setText("Unable to give blood");
+            mMAA_canGiveBlood.setText("Status: Unable to give blood");
         }
 
 
