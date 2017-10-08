@@ -5,10 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="example.android.com.bloodbank.LogIn"
-    tools:showIn="@layout/activity_log_in"
-    tools:layout_editor_absoluteY="81dp"
-    tools:layout_editor_absoluteX="0dp">
+    tools:context="example.android.com.bloodbank.LogIn">
 
     <TextView
         android:id="@+id/text_view_login"
@@ -18,8 +15,10 @@
         android:text="Log in"
         android:textColor="@color/colorBlack"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="7dp" />
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <EditText
         android:id="@+id/edit_text_login_username"
@@ -29,7 +28,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="8dp"
         android:gravity="center"
         android:hint="Username"
         app:layout_constraintHorizontal_bias="0.0"
@@ -59,17 +58,18 @@
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="16dp"
         android:gravity="center"
         android:text="Sign Up"
         android:textColor="@color/colorRed"
         android:textSize="30sp"
         app:layout_constraintLeft_toRightOf="@+id/text_view_login"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="266dp"
         android:background="@drawable/background"
         android:onClick="onClick"
-        android:clickable="true"/>
+        android:clickable="true"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <Button
         android:id="@+id/log_in_button"

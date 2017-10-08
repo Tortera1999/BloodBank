@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BloodBank</string>
+    <string name="app_name">Blood Donate</string>
     <string name="blood_type">Blood Type</string>
     <string name="button">Button</string>
     <string name="name">Name</string>

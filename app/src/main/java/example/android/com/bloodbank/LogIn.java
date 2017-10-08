@@ -64,7 +64,7 @@ public class LogIn extends AppCompatActivity {
                 for (Person user : allUsers) {
                     if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
                         //TODO: add intent to main page
-                        Intent newIntent = new Intent(getApplicationContext(), Questionnaire.class);
+                        Intent newIntent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(newIntent);
                         break;
                     }

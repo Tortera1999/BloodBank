@@ -111,7 +111,7 @@ public class UserInfo extends AppCompatActivity{
                     newUser.setID(ID);
                     databaseReference.child(ID).setValue(newUser);
 
-                    Intent goToMain = new Intent(getApplicationContext(), MainActivity.class);
+                    Intent goToMain = new Intent(getApplicationContext(), Questionnaire.class);
                     goToMain.putExtra("USER", newUser);
                     startActivity(goToMain);
                 }
