@@ -1,18 +1,19 @@
-package Classes;
+package example.android.com.bloodbank;
 
 import android.util.Log;
+
+import java.io.Serializable;
 
 /**
  * Created by default on 10/7/2017.
  */
 
-public class BloodType {
+public class BloodType implements Serializable {
     private char firstType;
     private char secType;
     private int RhFactor;
     private boolean AB;
     private final String BAD_CREATION = "Bad Creation";
-
     /*
         Constructor for non-type AB bloods
 
@@ -24,6 +25,8 @@ public class BloodType {
         this.RhFactor = rhFactor;
         this.AB = false;
     }
+
+    public BloodType () {}
     /*
         Constructor for type AB blood type
 
