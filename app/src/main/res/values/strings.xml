@@ -9,7 +9,7 @@
     <string name="email">Email</string>
     <string name="find_a_donation_center">Find a Donation Center</string>
     <string name="benefits_of_donating">Benefits of Donating</string>
-    <string name="it_feels_great_to_donate_nyou_get_free_juice_and_delicious_cookies_nit_s_something_you_can_spare_most_people_have_blood_to_spare_yet_there_is_still_not_enough_to_go_around_nyou_will_help_ensure_blood_is_on_the_shelf_when_needed_most_people_don_t_think_they_ll_ever_need_blood_but_many_do_nyou_will_be_someone_s_hero_in_fact_you_could_help_save_more_than_one_life_with_just_one_donation">It feels great to donate!  You get free juice and delicious cookies.  It\'s something you can spare – most people have blood to spare... yet, there is still not enough to go around.  You will help ensure blood is on the shelf when needed – most people don\'t think they\'ll ever need blood, but many do.  You will be someone\'s hero – in fact, you could help save more than one life with just one donation.</string>
+    <string name="map_description">It feels great to donate!  You get free juice and delicious cookies. \nIt\'s something you can spare – most people have blood to spare... yet, there is still not enough to go around.  \nYou will help ensure blood is on the shelf when needed – most people don\'t think they\'ll ever need blood, but many do. \nYou will be someone\'s hero – in fact, you could help save more than one life with just one donation.</string>
     <string name="profile">Profile</string>
     <string-array name="bloodtypearray">
         <item name="O-">O-</item>

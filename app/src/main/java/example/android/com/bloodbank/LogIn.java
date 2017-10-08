@@ -93,6 +93,7 @@ public class LogIn extends AppCompatActivity {
                         //TODO: add intent to main page
                         if (user.isCanGiveBlood()) {
                             Intent newIntent = new Intent(getApplicationContext(), MapActivity.class);
+                            newIntent.putExtra("USER", user);
                             startActivity(newIntent);
                             finish();
                             break;

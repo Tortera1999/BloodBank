@@ -17,18 +17,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="15dp" />
 
-    <Button
-        android:id="@+id/profilebutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/profile"
-        tools:layout_editor_absoluteX="280dp"
-        tools:layout_editor_absoluteY="16dp"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/mapbutton"
-        android:layout_toEndOf="@+id/mapbutton"
-        android:layout_marginTop="15dp" />
-
     <TextView
         android:id="@+id/descriptiontitle"
         android:layout_width="wrap_content"
@@ -44,7 +32,7 @@
         android:id="@+id/description"
         android:layout_width="273dp"
         android:layout_height="256dp"
-        android:text="@string/it_feels_great_to_donate_nyou_get_free_juice_and_delicious_cookies_nit_s_something_you_can_spare_most_people_have_blood_to_spare_yet_there_is_still_not_enough_to_go_around_nyou_will_help_ensure_blood_is_on_the_shelf_when_needed_most_people_don_t_think_they_ll_ever_need_blood_but_many_do_nyou_will_be_someone_s_hero_in_fact_you_could_help_save_more_than_one_life_with_just_one_donation"
+        android:text="@string/map_description"
         tools:layout_editor_absoluteX="56dp"
         tools:layout_editor_absoluteY="154dp"
         android:layout_above="@+id/mapbutton"
