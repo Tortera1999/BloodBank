@@ -1,5 +1,8 @@
 package example.android.com.bloodbank;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.io.Serializable;
 
 /**
@@ -14,6 +17,24 @@ public class Person implements Serializable {
     private String password;
     private String City;
     private String State;
+    private String ID;
+    private String Username;
+
+    public String getUsername() {
+        return Username;
+    }
+
+    public void setUsername(String username) {
+        Username = username;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
 
     public String getPassword() {
         return password;
@@ -46,14 +67,15 @@ public class Person implements Serializable {
         this.password = pass;
     }
 
-    public Person(String email, String pass) {
-        this.Email = email;
+    public Person(String username, String pass) {
+        this.Username = username;
         this.password = pass;
     }
     public Person(BloodType btype, String name) {
         this.BType = btype;
         this.Name = name;
     }
+    public Person () {}
 
     public String getName() {
         return Name;

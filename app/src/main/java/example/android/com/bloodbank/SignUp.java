@@ -3,6 +3,7 @@ package example.android.com.bloodbank;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +15,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 
 public class SignUp extends AppCompatActivity {
     private EditText mUsername;
@@ -21,15 +24,18 @@ public class SignUp extends AppCompatActivity {
     private EditText mPasswordCheck;
     private Button mSignUp;
 
+    ArrayList<Person> allUsers = new ArrayList<>();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference datRef = database.getReference().child("users");
+    DatabaseReference fireRef = database.getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        mUsername = (EditText) findViewById(R.id.edit_text_email);
+
+
+        mUsername = (EditText) findViewById(R.id.edit_text_username);
         mPassword = (EditText) findViewById(R.id.edit_text_password);
         mPasswordCheck = (EditText) findViewById(R.id.edit_text_password_check);
         mSignUp = (Button) findViewById(R.id.sign_up_button);
@@ -52,6 +58,7 @@ public class SignUp extends AppCompatActivity {
                 }
             }
         });
+
 
     }
 
